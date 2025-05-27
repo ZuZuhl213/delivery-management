@@ -1,0 +1,25 @@
+# Thư mục và file hệ thống
+/vendor/
+/node_modules/
+/.env
+.env.*
+*.log
+*.tmp
+*.cache
+
+# File cấu hình database và thông tin nhạy cảm
+/config/database.php
+/includes/db.php
+
+# File tạm của IDE
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# File hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Thư mục upload hoặc chứa file người dùng
+/uploads/

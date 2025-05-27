@@ -53,10 +53,3 @@ Hệ thống quản lý giao hàng cho doanh nghiệp, hỗ trợ quản lý nh�
 - MySQL/MariaDB
 - Apache/Nginx
 
-## Đóng góp
-
-Mọi đóng góp, báo lỗi hoặc đề xuất vui lòng gửi issue hoặc pull request trên GitHub.
-
----
-
-**© 2025 Delivery Management**
