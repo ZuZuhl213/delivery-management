@@ -28,6 +28,83 @@ require_once __DIR__ . '/functions.php';
             background-color: #0d6efd;
             color: white;
         }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #181a1b !important;
+            color: #e9ecef !important;
+        }
+        body.dark-mode .card,
+        body.dark-mode .card-footer,
+        body.dark-mode .search-bar-wrapper {
+            background-color: #23272b !important;
+            color: #e9ecef !important;
+            border-color: #343a40 !important;
+        }
+        body.dark-mode .table {
+            color: #e9ecef;
+        }
+        body.dark-mode .table-striped > tbody > tr:nth-of-type(odd) {
+            background-color: #23272b;
+        }
+        body.dark-mode .table-hover tbody tr:hover {
+            background-color: #2c3035 !important;
+        }
+        body.dark-mode .table-light,
+        body.dark-mode .table-light th,
+        body.dark-mode .table-light td {
+            background-color: #23272b !important;
+            color: #e9ecef !important;
+        }
+        body.dark-mode .form-control,
+        body.dark-mode .input-group-text,
+        body.dark-mode .btn,
+        body.dark-mode .btn-outline-secondary {
+            background-color: #23272b !important;
+            color: #e9ecef !important;
+            border-color: #343a40 !important;
+        }
+        body.dark-mode .btn-primary,
+        body.dark-mode .btn-danger,
+        body.dark-mode .btn-info,
+        body.dark-mode .btn-warning,
+        body.dark-mode .btn-success {
+            color: #fff !important;
+        }
+        body.dark-mode .alert {
+            background-color: #23272b !important;
+            color: #ffc107 !important;
+            border-color: #343a40 !important;
+        }
+        body.dark-mode .pagination .page-link {
+            background-color: #23272b !important;
+            color: #e9ecef !important;
+            border-color: #343a40 !important;
+        }
+        body.dark-mode .pagination .page-item.active .page-link {
+            background-color: #0d6efd !important;
+            color: #fff !important;
+        }
+        body.dark-mode .badge.bg-secondary {
+            background-color: #6c757d !important;
+            color: #fff !important;
+        }
+        body.dark-mode .avatar {
+            background-color: #0d6efd !important;
+            color: #fff !important;
+        }
+        body.dark-mode .sidebar {
+            background-color: #23272b !important;
+        }
+        body.dark-mode .nav-link {
+            color: #e9ecef !important;
+        }
+        body.dark-mode .nav-link.active {
+            background-color: #0d6efd !important;
+            color: #fff !important;
+        }
+        body.dark-mode .nav-link:hover {
+            background-color: #343a40 !important;
+        }
     </style>
 </head>
 <body>
@@ -55,7 +132,32 @@ require_once __DIR__ . '/functions.php';
                             <a class="nav-link text-white" href="/delivery-management/auth/login.php">Đăng nhập</a>
                         </li>
                     <?php endif; ?>
+                    <!-- Nút chuyển dark mode -->
+                    <li class="nav-item ms-2">
+                        <button id="toggle-darkmode" class="btn btn-outline-light" type="button" title="Chuyển Dark/Light mode">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <script>
+        // Dark mode toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('toggle-darkmode');
+            if (btn) {
+                btn.onclick = function() {
+                    document.body.classList.toggle('dark-mode');
+                    if(document.body.classList.contains('dark-mode')) {
+                        localStorage.setItem('darkMode', '1');
+                    } else {
+                        localStorage.removeItem('darkMode');
+                    }
+                };
+            }
+            if(localStorage.getItem('darkMode')) {
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
